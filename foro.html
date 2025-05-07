@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Foro - Palmito: Drakenshore</title>
+  <link rel="stylesheet" href="foro-styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="background-layer"></div>
+
+  <header>
+    <h1>Foro de Palmito</h1>
+    <p class="subtitle">Donde las leyendas cobran voz</p>
+    <a href="index.html" class="back-button">← Volver al menú</a>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <form id="comment-form">
+        <input type="text" id="name" placeholder="Tu nombre" required />
+        <textarea id="message" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit">Publicar</button>
+      </form>
+    </section>
+
+    <section id="comments-section" class="comments"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Palmito - Drakenshore. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="foro-script.js"></script>
+</body>
+</html>
