@@ -1,230 +1,241 @@
-/* ======== Estilo base ======== */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Cinzel', serif;
-  background-color: #0b0605;
-  color: #e9ddc7;
-  overflow-x: hidden;
-  position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cinzel', serif;
+    background-color: #0b0605;
+    color: #e9ddc7;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(rgba(5, 3, 2, 0.92), rgba(5, 3, 2, 0.92)), url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -3;
+  }
+  
+  #embers {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+  }
+  
+  .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 3, 2, 0.8);
+    z-index: -1;
+  }
+  
+  header {
+    text-align: center;
+    margin-top: 10vh;
+  }
+  
+  .main-title {
+    font-size: 3.8rem;
+    font-weight: 700;
+    color: #f0e6c0;
+    text-shadow: 0 0 10px #1e140c, 0 0 20px #1a120c;
+    margin-bottom: 12px;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    color: #b8a98c;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+  
+  .menu-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1ede3;
+    background: rgba(30, 20, 15, 0.65);
+    border: 1px solid #7a5c3a;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(100, 70, 40, 0.2);
+    backdrop-filter: blur(2px);
+    text-shadow: 0 0 2px #000;
+  }
+  
+  .menu-button:hover {
+    background: rgba(60, 40, 30, 0.8);
+    box-shadow: 0 0 20px rgba(180, 140, 100, 0.3);
+    transform: scale(1.04);
+  }
+  
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .content section {
+    margin-bottom: 40px;
+  }
+  
+  .content h2 {
+    font-size: 2rem;
+    color: #f0e6c0;
+    margin-bottom: 10px;
+  }
+  
+  .content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .content a {
+    color: #d4b67a;
+    text-decoration: none;
+    border-bottom: 1px dashed #d4b67a;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  
+  .content a:hover {
+    color: #f0e0b5;
+    border-color: #f0e0b5;
+  }
+  
+  .back-button {
+    display: block;
+    margin: 40px auto 20px;
+    padding: 12px 24px;
+    background: rgba(40, 30, 20, 0.75);
+    color: #f5e6c5;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid #a8875b;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 0 0 2px #000;
+    box-shadow: 0 0 10px rgba(120, 90, 60, 0.2);
+    transition: all 0.3s ease;
+    width: fit-content;
+  }
+  
+  .back-button:hover {
+    background: rgba(70, 50, 30, 0.9);
+    box-shadow: 0 0 15px rgba(255, 210, 150, 0.3);
+    transform: scale(1.05);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 40px 20px 60px;
+    color: #a58a6c;
+    font-size: 0.85rem;
+    margin-top: 60px;
+  }
+
+  .content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(230, 200, 160, 0.25),
+                0 0 40px rgba(120, 90, 60, 0.1);
+    border: 1px solid rgba(200, 180, 150, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .content img:hover {
+    transform: scale(1.015);
+    box-shadow: 0 0 25px rgba(250, 230, 200, 0.35),
+                0 0 60px rgba(150, 100, 50, 0.15);
+  }
+  
+  
+  @keyframes flicker {
+    0%, 100% { opacity: 0.1; transform: translateY(0); }
+    50% { opacity: 0.8; transform: translateY(-2px); }
+  }
+  
+/* ================================ */
+/* 🌐 Mejora visual para dispositivos */
+/* ================================ */
+
+@media (max-width: 1024px) {
+  .main-title {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .menu-button {
+    width: 80%;
+    font-size: 1rem;
+    padding: 14px 20px;
+    border-radius: 10px;
+  }
+
+  .form-section,
+  .comment-card,
+  .content {
+    padding: 24px;
+    border-radius: 12px;
+  }
+
+  .content section {
+    margin-bottom: 50px;
+  }
+
+  .content p {
+    line-height: 1.75;
+    font-size: 1.05rem;
+  }
+
+  .reply-form input,
+  .reply-form textarea,
+  form input,
+  form textarea {
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .reply-form button,
+  form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background-image: linear-gradient(rgba(5, 3, 2, 0.92), rgba(5, 3, 2, 0.92)), url('background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -3;
-}
-
-#embers {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  pointer-events: none;
-}
-
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(5, 3, 2, 0.8);
-  z-index: -1;
-}
-
-/* ======== Encabezado ======== */
-header {
-  text-align: center;
-  margin-top: 8vh;
-}
-
-.main-title {
-  font-size: 3.6rem;
-  font-weight: 700;
-  color: #f0e6c0;
-  text-shadow: 0 0 10px #1e140c, 0 0 20px #1a120c;
-  margin-bottom: 12px;
-}
-
-.subtitle {
-  font-size: 1rem;
-  color: #b8a98c;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-}
-
-/* ======== Menú ======== */
-.menu {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-bottom: 40px;
-}
-
-.menu-button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #f1ede3;
-  background: rgba(30, 20, 15, 0.65);
-  border: 1px solid #7a5c3a;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(100, 70, 40, 0.2);
-  backdrop-filter: blur(2px);
-  text-shadow: 0 0 2px #000;
-}
-
-.menu-button:hover {
-  background: rgba(60, 40, 30, 0.8);
-  box-shadow: 0 0 20px rgba(180, 140, 100, 0.3);
-  transform: scale(1.04);
-}
-
-/* ======== Contenido principal ======== */
-.content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.content section {
-  margin-bottom: 40px;
-}
-
-.content h2 {
-  font-size: 2rem;
-  color: #f0e6c0;
-  margin-bottom: 10px;
-}
-
-.content p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.content a {
-  color: #d4b67a;
-  text-decoration: none;
-  border-bottom: 1px dashed #d4b67a;
-  transition: color 0.3s, border-color 0.3s;
-}
-
-.content a:hover {
-  color: #f0e0b5;
-  border-color: #f0e0b5;
-}
-
-/* ======== Botón volver ======== */
-.back-button {
-  display: block;
-  margin: 40px auto 20px;
-  padding: 12px 24px;
-  background: rgba(40, 30, 20, 0.75);
-  color: #f5e6c5;
-  font-weight: bold;
-  font-size: 1rem;
-  border: 2px solid #a8875b;
-  border-radius: 6px;
-  text-decoration: none;
-  text-align: center;
-  text-shadow: 0 0 2px #000;
-  box-shadow: 0 0 10px rgba(120, 90, 60, 0.2);
-  transition: all 0.3s ease;
-  width: fit-content;
-}
-
-.back-button:hover {
-  background: rgba(70, 50, 30, 0.9);
-  box-shadow: 0 0 15px rgba(255, 210, 150, 0.3);
-  transform: scale(1.05);
-}
-
-/* ======== Footer ======== */
-footer {
-  text-align: center;
-  padding: 40px 20px 60px;
-  color: #a58a6c;
-  font-size: 0.85rem;
-  margin-top: 60px;
-}
-
-/* ======== Acordeón ======== */
-.accordion-item {
-  margin-bottom: 30px;
-  border: 1px solid #7a5c3a;
-  border-radius: 10px;
-  overflow: hidden;
-  background: rgba(30, 20, 15, 0.6);
-  box-shadow: 0 0 10px rgba(120, 90, 60, 0.15);
-}
-
-.accordion-toggle {
-  width: 100%;
-  background: none;
-  border: none;
-  text-align: left;
-  padding: 16px 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #f0e6c0;
-  cursor: pointer;
-  background-color: rgba(50, 35, 20, 0.7);
-  border-bottom: 1px solid #5a4030;
-  text-shadow: 0 0 3px #000;
-  transition: background 0.3s ease;
-}
-
-.accordion-toggle:hover {
-  background-color: rgba(70, 50, 30, 0.85);
-}
-
-.accordion-content {
-  display: none;
-  padding: 20px;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.accordion-content p {
-  margin-bottom: 16px;
-  line-height: 1.6;
-}
-
-.accordion-content img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 20px auto;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(230, 200, 160, 0.25),
-              0 0 40px rgba(120, 90, 60, 0.1);
-  border: 1px solid rgba(200, 180, 150, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.accordion-content img:hover {
-  transform: scale(1.015);
-  box-shadow: 0 0 25px rgba(250, 230, 200, 0.35),
-              0 0 60px rgba(150, 100, 50, 0.15);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ======== Responsive Design ======== */
 @media (max-width: 768px) {
+  header {
+    margin-top: 6vh;
+  }
+
   .main-title {
     font-size: 2.5rem;
   }
@@ -234,21 +245,92 @@ footer {
   }
 
   .menu-button {
-    padding: 10px 18px;
+    width: 100%;
+    padding: 12px 18px;
     font-size: 0.95rem;
   }
 
-  .accordion-toggle {
-    font-size: 1rem;
-    padding: 14px 16px;
+  .form-section,
+  .comment-card,
+  .reply,
+  .content {
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
   }
 
-  .accordion-content {
-    padding: 16px;
+  .reply-form input,
+  .reply-form textarea,
+  form input,
+  form textarea {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .reply-form button,
+  form button {
+    font-size: 0.95rem;
   }
 
   .back-button {
+    margin-top: 30px;
     padding: 10px 20px;
     font-size: 0.9rem;
+  }
+
+  .content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  .menu {
+    gap: 16px;
+  }
+
+  .menu-button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+
+  .content {
+    padding: 16px 12px;
+  }
+
+  .comment-card,
+  .form-section,
+  .reply {
+    padding: 16px;
+  }
+
+  .reply-form input,
+  .reply-form textarea,
+  form input,
+  form textarea {
+    font-size: 0.9rem;
+  }
+
+  .back-button {
+    font-size: 0.85rem;
+    padding: 8px 14px;
+  }
+
+  footer {
+    font-size: 0.75rem;
+    padding: 20px 10px;
   }
 }
