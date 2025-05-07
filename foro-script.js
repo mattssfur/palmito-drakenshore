@@ -1,25 +1,31 @@
+// Importar módulos de Firebase v9 (modular)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getDatabase, ref, push, set, onValue, update } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
+// Configuración personalizada de tu proyecto Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDdZs8TVeEqH2rr33jg18Kn1HcN9iasO3w",
   authDomain: "palmito-v-foro.firebaseapp.com",
+  databaseURL: "https://palmito-v-foro-default-rtdb.firebaseio.com", // ✅ Tu databaseURL
   projectId: "palmito-v-foro",
-  storageBucket: "palmito-v-foro.firebasestorage.app",
+  storageBucket: "palmito-v-foro.appspot.com",
   messagingSenderId: "161112860583",
   appId: "1:161112860583:web:22b308f6c8be51d98a7882",
   measurementId: "G-SV3E1PKJ83"
 };
 
+// Inicializar la app y la base de datos
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const commentsRef = ref(db, "comments");
 
+// Elementos del DOM
 const form = document.getElementById("comment-form");
 const nameInput = document.getElementById("name");
 const messageInput = document.getElementById("message");
 const commentsSection = document.getElementById("comments-section");
 
+// Publicar nuevo comentario
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = nameInput.value.trim();
@@ -36,6 +42,7 @@ form.addEventListener("submit", async (e) => {
   form.reset();
 });
 
+// Cargar comentarios en tiempo real
 onValue(commentsRef, (snapshot) => {
   commentsSection.innerHTML = "";
   snapshot.forEach((child) => {
@@ -55,6 +62,7 @@ onValue(commentsRef, (snapshot) => {
 
     const repliesDiv = document.createElement("div");
     repliesDiv.className = "replies";
+
     (data.replies || []).forEach((reply) => {
       const replyEl = document.createElement("div");
       replyEl.className = "reply";
