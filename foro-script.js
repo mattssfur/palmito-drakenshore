@@ -1,8 +1,6 @@
-// Import Firebase v9+ modular SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getDatabase, ref, push, set, onValue, update } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
-// Tu configuración real de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDdZs8TVeEqH2rr33jg18Kn1HcN9iasO3w",
   authDomain: "palmito-v-foro.firebaseapp.com",
@@ -13,20 +11,15 @@ const firebaseConfig = {
   measurementId: "G-SV3E1PKJ83"
 };
 
-// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-
-// Referencia a los comentarios
 const commentsRef = ref(db, "comments");
 
-// DOM
 const form = document.getElementById("comment-form");
 const nameInput = document.getElementById("name");
 const messageInput = document.getElementById("message");
 const commentsSection = document.getElementById("comments-section");
 
-// Publicar comentario
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = nameInput.value.trim();
@@ -43,10 +36,8 @@ form.addEventListener("submit", async (e) => {
   form.reset();
 });
 
-// Mostrar comentarios en tiempo real
 onValue(commentsRef, (snapshot) => {
   commentsSection.innerHTML = "";
-
   snapshot.forEach((child) => {
     const commentKey = child.key;
     const data = child.val();
@@ -128,7 +119,6 @@ onValue(commentsRef, (snapshot) => {
     card.appendChild(text);
     card.appendChild(replyBtn);
     card.appendChild(repliesDiv);
-
     commentsSection.appendChild(card);
   });
 });
