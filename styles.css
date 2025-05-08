@@ -329,3 +329,36 @@ body {
     font-size: 1em;
   }
 }
+
+.normas-section {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid #c9b37e;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  color: #f3eac2;
+  text-align: left;
+}
+
+.normas-lista {
+  list-style-type: decimal;
+  padding-left: 25px;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.normas-lista li {
+  margin-bottom: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .normas-section {
+    padding: 20px;
+  }
+
+  .normas-lista {
+    font-size: 1em;
+  }
+}
