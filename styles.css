@@ -259,3 +259,73 @@ body {
     padding: 20px 10px;
   }
 }
+
+/* Estilos contacto medieval místico */
+.contacto-body {
+  background: linear-gradient(to bottom, #1b1b2f, #162447);
+  color: #f3eac2;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.contacto-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.contacto-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid #c9b37e;
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.contacto-item:hover {
+  transform: scale(1.05);
+}
+
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+}
+
+.contacto-item a {
+  text-decoration: none;
+  color: #f3eac2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contacto-item p {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contacto-main {
+    gap: 20px;
+  }
+
+  .contacto-item {
+    padding: 15px;
+  }
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .contacto-item p {
+    font-size: 1em;
+  }
+}
